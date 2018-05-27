@@ -1,0 +1,180 @@
+categories:
+- casa
+- luzes
+conversations:
+- - apagar
+  - quer apagar qual lâmpada?
+- - apagar a lampada da sala
+  - certo, vou apagar a lampada da sala
+- - apague
+  - quer apagar qual lâmpada?
+- - apagar a lampada da sala
+  - certo, vou apagar a lampada da sala
+- - luz
+  - o que de deseja?
+  - acender a luz da sala
+  - certo, vou acender a luz da sala
+- - lampada
+  - o que deseja?
+  - acender a lampada da sala
+  - certo, vou acender a lampada da sala
+- - acenda a luz
+  - você precisa dizer qual luz quer acender
+- - acenda a luz da sala
+  - certo, vou acender a luz da sala
+- - apague a luz da sala
+  - certo, vou apagar a luz da sala
+  - você precisa dizer qual lampada quer acender
+- - acenda a lampada da sala
+  - certo, vou acender a lampada da sala
+- - apague a lampada da sala
+  - certo, vou apagar a lampada da sala
+- - apagar
+  - quer apagar qual lâmpada?
+- - apagar a lampada da garagem
+  - certo, vou apagar a lampada da garagem
+- - apague
+  - quer apagar qual lâmpada?
+- - apagar a lampada da garagem
+  - certo, vou apagar a lampada da garagem
+- - luz
+  - o que de deseja?
+  - acender a luz da garagem
+  - certo, vou acender a luz da garagem
+- - lampada
+  - o que deseja?
+  - acender a lampada da garagem
+  - certo, vou acender a lampada da garagem
+- - acenda a luz
+  - você precisa dizer qual luz quer acender
+- - acenda a luz da garagem
+  - certo, vou acender a luz da garagem
+- - apague a luz da garagem
+  - certo, vou apagar a luz da garagem
+  - você precisa dizer qual lampada quer acender
+- - acenda a lampada da garagem
+  - certo, vou acender a lampada da garagem
+- - apague a lampada da garagem
+  - certo, vou apagar a lampada da garagem
+- - apagar
+  - quer apagar qual lâmpada?
+- - apagar a lampada do banheiro
+  - certo, vou apagar a lampada do banheiro
+- - apague
+  - quer apagar qual lâmpada?
+- - apagar a lampada do banheiro
+  - certo, vou apagar a lampada do banheiro
+- - luz
+  - o que de deseja?
+  - acender a luz do banheiro
+  - certo, vou acender a luz do banheiro
+- - lampada
+  - o que deseja?
+  - acender a lampada do banheiro
+  - certo, vou acender a lampada do banheiro
+- - acenda a luz
+  - você precisa dizer qual luz quer acender
+- - acenda a luz do banheiro
+  - certo, vou acender a luz do banheiro
+- - apague a luz do banheiro
+  - certo, vou apagar a luz do banheiro
+  - você precisa dizer qual lampada quer acender
+- - acenda a lampada do banheiro
+  - certo, vou acender a lampada do banheiro
+- - apague a lampada do banheiro
+  - certo, vou apagar a lampada do banheiro
+- - apagar
+  - quer apagar qual lâmpada?
+- - apagar a lampada do banheiro
+  - certo, vou apagar a lampada do banheiro
+- - apague
+  - quer apagar qual lâmpada?
+- - apagar a lampada do banheiro
+  - certo, vou apagar a lampada do banheiro
+- - luz
+  - o que de deseja?
+  - acender a luz do banheiro
+  - certo, vou acender a luz do banheiro
+- - lampada
+  - o que deseja?
+  - acender a lampada do banheiro
+  - certo, vou acender a lampada do banheiro
+- - acenda a luz
+  - você precisa dizer qual luz quer acender
+- - acenda a luz do banheiro
+  - certo, vou acender a luz do banheiro
+- - apague a luz do banheiro
+  - certo, vou apagar a luz do banheiro
+  - você precisa dizer qual lampada quer acender
+- - acenda a lampada do banheiro
+  - certo, vou acender a lampada do banheiro
+- - apague a lampada do banheiro
+  - certo, vou apagar a lampada do banheiro
+- - está escuro aqui
+  - quer que eu acenda uma luz?
+  - quero
+  - qual luz?
+- - está escuro aqui
+  - quer que eu acenda uma lampada?
+  - quero
+  - qual lampada?
+- - está muito claro aqui
+  - quer que eu apague uma luz?
+  - quero
+  - qual luz?
+- - está muito claro aqui
+  - quer que eu apague uma lampada?
+  - quero
+  - qual lampada?
+- - está escuro aqui
+  - quer que eu acenda uma luz?
+  - sim
+  - qual luz?
+- - está escuro aqui
+  - quer que eu acenda uma lampada?
+  - sim
+  - qual lampada?
+- - está muito claro aqui
+  - quer que eu apague uma luz?
+  - sim
+  - qual luz?
+- - está muito claro aqui
+  - quer que eu apague uma lampada?
+  - sim
+  - qual lampada?  
+- - acenda a luz da garagem
+  - acendendo a luz da garagem
+- - acenda
+  - acender o que?
+- - a luz
+  - qual?
+- - apague
+  - apagar o que?
+- - qual lâmpada?
+  - qualquer uma
+  - apagarei a que estiver acesa
+- - apagar a lampada da quarto
+  - certo, vou apagar a lampada da quarto
+- - apague
+  - quer apagar qual lâmpada?
+- - apagar a lampada da quarto
+  - certo, vou apagar a lampada da quarto
+- - luz
+  - o que de deseja?
+  - acender a luz da quarto
+  - certo, vou acender a luz da quarto
+- - lampada
+  - o que deseja?
+  - acender a lampada da quarto
+  - certo, vou acender a lampada da quarto
+- - acenda a luz
+  - você precisa dizer qual luz quer acender
+- - acenda a luz da quarto
+  - certo, vou acender a luz da quarto
+- - apague a luz da quarto
+  - certo, vou apagar a luz da quarto
+  - você precisa dizer qual lampada quer acender
+- - acenda a lampada da quarto
+  - certo, vou acender a lampada da quarto
+- - apague a lampada da quarto
+  - certo, vou apagar a lampada da quarto

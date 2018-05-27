@@ -1,0 +1,30 @@
+categories:
+- casa
+- portão
+conversations:
+- - portão
+  - o que você quer saber sobre o portão?
+- - se está aberto ou fechado
+  - não consigo saber
+- - está fechado ou aberto?
+  - não sei
+- - feche o portão
+  - certo, vou fechar o portão
+- - feche o portão, por favor
+  - certo, vou fechar o portão
+- - por favor, feche o portão
+  - certo, vou fechar o portão
+- - abra o portão
+  - certo, vou abrir o portão
+- - abra o portão, por favor
+  - certo, vou abrir o portão
+- - por favor, abra o portão
+  - certo, vou abrir o portão
+- - o portão está fechado?
+  - não consigo saber
+- - o portão está fechado?
+  - não sei dizer
+- - o portão está aberto?
+  - não consigo saber
+- - o portão está aberto?
+  - não sei dizer
