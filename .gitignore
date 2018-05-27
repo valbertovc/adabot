@@ -37,4 +37,4 @@ venv.bak/
 audio/
 *.sqlite3
 .idea
-settings_dev.py
+*settings_dev.py
