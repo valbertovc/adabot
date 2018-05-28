@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 with open('README.md') as f:
     readme = f.read()
@@ -13,7 +13,7 @@ EXCLUDE_FROM_PACKAGES = ['adabot.settings_dev']
 
 setup(
     name='adabot',
-    version='0.1.0',
+    version='0.2.0',
     description='Ada is chatbot for home automation',
     keywords='ada chatbot bot home automation',
     long_description=readme,
@@ -35,7 +35,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3 :: Only',
-        'TOPIC :: COMMUNICATIONS :: CHAT',
-        'TOPIC :: HOME AUTOMATION',
+        'TOPIC :: Communications :: Chat',
+        'TOPIC :: Home Automation',
     ],
 )
