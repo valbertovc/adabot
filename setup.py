@@ -9,8 +9,6 @@ with open('LICENSE') as f:
 with open('requirements.txt') as f:
     requirements = f.read()
 
-EXCLUDE_FROM_PACKAGES = ['adabot.settings_dev']
-
 setup(
     name='adabot',
     version='1.0.0',
