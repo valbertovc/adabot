@@ -11,19 +11,34 @@ from adabot import settings
 
 class VoiceInput(InputType):
 
+    def __init__(self):
+        self.recognizer = r = sr.Recognizer()
+
     def input(self):
         return self.listen()
 
     def listen(self):
         print('Escutando...')
-        r = sr.Recognizer()
+
         with sr.Microphone() as source:
-            r.adjust_for_ambient_noise(source)
-            audio = r.listen(source)
+            self.recognizer.adjust_for_ambient_noise(source)
+            audio = self.recognizer.listen(source)
             print('Escutei...')
-        text = ''
+            self.recognize(audio)
+
+    def recognize(self, audio):
+        raise NotImplemented
+
+
+class WitVoiceInput(VoiceInput):
+
+    def __init__(self, wit_ai_key):
+        super().__init__()
+        self.wit_ai_key = wit_ai_key
+
+    def recognize(self, audio):
         try:
-            text = r.recognize_wit(audio, key=settings.WIT_AI_KEY)
+            text = self.recognizer.recognize_wit(audio, key=self.wit_ai_key)
         except sr.UnknownValueError:
             text = 'Não entendi'
         except sr.RequestError as e:

@@ -1,8 +1,6 @@
 from chatterbot import ChatBot
 
-from .command import WitCommmand, Intent
 from .mode import terminal
-from .runner import RequestRunner
 from . import settings
 
 
@@ -12,10 +10,6 @@ class Bot(object):
                  out_mode=None, confidence=0.7):
         self.name = name
         self.human_name = human_name
-        self.command = WitCommmand(
-            token=settings.WIT_TOKEN,
-            runner=RequestRunner(url=settings.ARDUINO_URL),
-            intent=Intent(min_words=2, keywords=settings.INTENT_WORDS))
         self.bot = ChatBot(
             self.name,
             storage_adapter='chatterbot.storage.SQLStorageAdapter',
@@ -47,16 +41,6 @@ class Bot(object):
 
         if train:
             self.bot.train(settings.DATA_DIR)
-
-    def process_command(self, text):
-        self.command.text = text
-        error = ''
-        success = False
-        if self.command.is_valid():
-            print("Executando o comando...")
-            success = self.command.run()
-            error = self.command.error
-        return success, error
 
     def listen(self):
         return self.in_mode.input()

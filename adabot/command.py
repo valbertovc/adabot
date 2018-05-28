@@ -28,9 +28,22 @@ class WitCommmand(Commmand):
         self.wit = Wit(token)
         self.intent = intent
 
-    def run(self):
+    def __run(self):
         self.process_wit_response()
-        return super().run(**self.params)
+        if self.is_valid():
+            return super().run(**self.params)
+        return False
+
+    def run(self, text=None):
+        if text:
+            self.text = text
+        error = ''
+        success = False
+        if self.is_valid():
+            print("Executando o comando...")
+            success = self.__run()
+            error = self.error
+        return success, error
 
     def is_valid(self):
         return self.text and self.intent.is_valid(self.text)
