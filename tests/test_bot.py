@@ -16,6 +16,12 @@ class BotNames(unittest.TestCase):
         text = "Text to speak"
         self.assertTrue(text in self.bot.speak(text))
 
+    def test_can_process_comand(self):
+        text = "palavras fora das keywords"
+        success, error_message = self.bot.process_command(text)
+        self.assertEqual(success, False)
+        self.assertEqual(error_message, '')
+
 
 if __name__ == '__main__':
     unittest.main()
