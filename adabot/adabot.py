@@ -2,7 +2,7 @@ from chatterbot import ChatBot
 from .command import WitCommmand, Intent
 from .runner import RequestRunner
 from .mode import terminal
-from .settings import WIT_TOKEN, ARDUINO_URL, INTENT_WORDS
+from .settings import WIT_TOKEN, ARDUINO_URL, INTENT_WORDS, DATA_DIR
 
 
 class Bot(object):
@@ -45,12 +45,7 @@ class Bot(object):
         self.out_mode = out_mode
 
         if train:
-            self.bot.train('chatterbot.corpus.portuguese')
-            self.bot.train('./data/luzes.yml')
-            self.bot.train('./data/portao.yml')
-
-    def welcome_chat(self):
-        self.out_mode.response(f'Oi, eu me chamo {self.name}! O que deseja?')
+            self.bot.train(DATA_DIR)
 
     def process_command(self, text):
         self.command.text = text

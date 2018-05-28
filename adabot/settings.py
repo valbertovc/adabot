@@ -7,12 +7,14 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 AUDIO_DIR = os.path.join(BASE_DIR, 'adabot', 'audio')
+DATA_DIR = os.path.join(BASE_DIR, 'adabot', 'data')
 
 # Define url address for arduino
 # ARDUINO_URL = ''
 
 # Enable for use with wit.ai
 # WIT_TOKEN = ''
+# WIT_AI_KEY = ''
 
 INTENT_WORDS = ['acenda', 'acender', 'acende',
                 'ligue', 'ligar','liga',

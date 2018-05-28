@@ -6,7 +6,7 @@ from gtts import gTTS
 
 from adabot.mode.type import InputType, OutputType
 from slugify import slugify
-from adabot.settings import AUDIO_DIR
+from adabot.settings import AUDIO_DIR, WIT_AI_KEY
 
 
 class VoiceInput(InputType):
@@ -23,7 +23,7 @@ class VoiceInput(InputType):
             print('Escutei...')
         text = ''
         try:
-            text = r.recognize_google(audio, language='pt-BR')
+            text = r.recognize_wit(audio, key=WIT_AI_KEY)
         except sr.UnknownValueError:
             text = 'Não entendi'
         except sr.RequestError as e:
@@ -34,7 +34,7 @@ class VoiceInput(InputType):
 
 class VoiceOutput(OutputType):
 
-    def response(self, statement):
+    def response(self, statement, *args, **kwargs):
         statement = str(statement)
         return self.speak(statement)
 
