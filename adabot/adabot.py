@@ -1,8 +1,9 @@
 from chatterbot import ChatBot
+
 from .command import WitCommmand, Intent
-from .runner import RequestRunner
 from .mode import terminal
-from .settings import WIT_TOKEN, ARDUINO_URL, INTENT_WORDS, DATA_DIR
+from .runner import RequestRunner
+from . import settings
 
 
 class Bot(object):
@@ -12,11 +13,11 @@ class Bot(object):
         self.name = name
         self.human_name = human_name
         self.command = WitCommmand(
-            token=WIT_TOKEN,
-            runner=RequestRunner(url=ARDUINO_URL),
-            intent=Intent(min_words=2, keywords=INTENT_WORDS))
+            token=settings.WIT_TOKEN,
+            runner=RequestRunner(url=settings.ARDUINO_URL),
+            intent=Intent(min_words=2, keywords=settings.INTENT_WORDS))
         self.bot = ChatBot(
-            self.name, 
+            self.name,
             storage_adapter='chatterbot.storage.SQLStorageAdapter',
             database='./database.sqlite3',
             preprocessors=[
@@ -35,7 +36,7 @@ class Bot(object):
                 }
             ],
             trainer='chatterbot.trainers.ChatterBotCorpusTrainer')
-        
+
         if not in_mode:
             in_mode = terminal.TerminalInput(human_name)
         if not out_mode:
@@ -45,23 +46,24 @@ class Bot(object):
         self.out_mode = out_mode
 
         if train:
-            self.bot.train(DATA_DIR)
+            self.bot.train(settings.DATA_DIR)
 
     def process_command(self, text):
         self.command.text = text
+        error = ''
+        success = False
         if self.command.is_valid():
             print("Executando o comando...")
             success = self.command.run()
-            if success:
-                return True, ''
-        return False, self.command.error
+            error = self.command.error
+        return success, error
 
     def listen(self):
         return self.in_mode.input()
 
     def get_response(self, statement):
         return self.bot.get_response(statement)
-    
+
     def speak(self, statement):
         self.out_mode.response(statement)
         return statement

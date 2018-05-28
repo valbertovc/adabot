@@ -3,10 +3,10 @@ import subprocess
 
 import speech_recognition as sr
 from gtts import gTTS
+from slugify import slugify
 
 from adabot.mode.type import InputType, OutputType
-from slugify import slugify
-from adabot.settings import AUDIO_DIR, WIT_AI_KEY
+from adabot import settings
 
 
 class VoiceInput(InputType):
@@ -23,7 +23,7 @@ class VoiceInput(InputType):
             print('Escutei...')
         text = ''
         try:
-            text = r.recognize_wit(audio, key=WIT_AI_KEY)
+            text = r.recognize_wit(audio, key=settings.WIT_AI_KEY)
         except sr.UnknownValueError:
             text = 'Não entendi'
         except sr.RequestError as e:
@@ -41,7 +41,7 @@ class VoiceOutput(OutputType):
     def speak(self, text):
         tts = gTTS(text=text, lang='pt-BR')
         slug_name = slugify(text) + '.mp3'
-        file_name = os.path.join(AUDIO_DIR, slug_name)
+        file_name = os.path.join(settings.AUDIO_DIR, slug_name)
         if not os.path.exists(file_name):
             tts.save(file_name)
         subprocess.call(["mpg123", '-q', file_name])

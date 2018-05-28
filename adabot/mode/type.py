@@ -1,5 +1,3 @@
-
-
 class InputType(object):
     """ Interface for input types """
 

@@ -2,8 +2,9 @@ from adabot.mode.type import InputType, OutputType
 
 CHAT_WIDTH = 10
 
+
 class TerminalInput(InputType):
-    
+
     def __init__(self, name='', template=''):
         if not name:
             name = 'You'
