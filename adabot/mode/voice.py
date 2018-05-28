@@ -4,9 +4,9 @@ import subprocess
 import speech_recognition as sr
 from gtts import gTTS
 
-from mode.type import InputType, OutputType
+from adabot.mode.type import InputType, OutputType
 from slugify import slugify
-from settings import AUDIO_DIR
+from adabot.settings import AUDIO_DIR
 
 
 class VoiceInput(InputType):

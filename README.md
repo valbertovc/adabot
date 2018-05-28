@@ -23,4 +23,4 @@ Ada é um chatbot criado com a finalidade de integrar automação residencial co
 - https://medium.com/@surmenok/chatbot-architecture-496f5bf820ed
 - http://textblob.readthedocs.io/en/dev/index.html
 - https://wit.ai/docs/recipes#integrate-link
-- home-assistant.io
+- http://home-assistant.io

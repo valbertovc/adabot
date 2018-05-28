@@ -1,11 +1,10 @@
 import requests
 
-RUNNER_URL = 'http://192.168.2.99'
-
 
 class CommandRunner(object):
     error = ''
-    def run(*args, **kwargs):
+
+    def run(self, *args, **kwargs):
         raise NotImplementedError
 
 
@@ -13,9 +12,9 @@ class RequestRunner(CommandRunner):
     def __init__(self, url, **kwargs):
         self.url = url
         self.params = kwargs
-        self.error = ''
+        self.response = None
 
-    def set_params(**kwargs):
+    def set_params(self, **kwargs):
         self.params = kwargs
 
     def run(self, *args, **kwargs):

@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 
 with open('LICENSE') as f:
@@ -9,8 +9,10 @@ with open('LICENSE') as f:
 with open('requirements.txt') as f:
     requirements = f.read()
 
+EXCLUDE_FROM_PACKAGES = ['adabot.settings_dev']
+
 setup(
-    name='ada-bot',
+    name='adabot',
     version='0.1.0',
     description='Ada is chatbot for home automation',
     keywords='ada chatbot bot home automation',
@@ -19,12 +21,21 @@ setup(
     author_email='valbertovc@gmail.com',
     url='https://github.com/python-ada-bot',
     license=license,
-    install_requires = requirements,
-    packages=find_packages(exclude=('tests', 'docs')),
+    include_package_data=True,
+    install_requires=requirements,
+    packages=['adabot', 'tests', 'docs'],
     classifiers=[
-        'Development Status :: development',
-        'License :: OSI Approved :: GNU/GPL',
+        'Development Status :: 2 - Pre-Alpha',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU General Public License v3',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Topic :: Chatbot :: Linguistic',
-      ],
+        'Programming Language :: Python :: 3 :: Only',
+        'TOPIC :: COMMUNICATIONS :: CHAT',
+        'TOPIC :: HOME AUTOMATION',
+    ],
 )

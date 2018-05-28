@@ -23,32 +23,35 @@ class Commmand(object):
 
 class WitCommmand(Commmand):
 
-    keywords = ['acenda', 'acender', 'acende', 'ligue', 'ligar','liga', 'desligar', 'desliga', 'desligue',
-                'portao', 'portão', 'lampada', 'lâmpada', 'luz', 'sala', 'garagem',
-                'banheiro', 'externo', 'externa', 'abra', 'abre', 'abrir', 'feche', 'fecha', 'fechar']
-
-    def __init__(self, token, *args, **kwargs):
+    def __init__(self, token, intent, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.wit = Wit(token)
+        self.intent = intent
 
     def run(self):
         self.process_wit_response()
         return super().run(**self.params)
 
     def is_valid(self):
-        MIN_WORDS = 2
-        if self.text:
-            words = self.intent_words(self.text)
-            if len(words) >= MIN_WORDS:
-                return True
-        return False
-    
+        return self.text and self.intent.is_valid(self.text)
+
     def process_wit_response(self):
         response = self.wit.message(self.text)
         entities = response['entities']
         for entitie, data in entities.items():
             self.params[entitie] = data[0]['value']
 
-    def intent_words(self, text):
+
+class Intent(object):
+
+    def __init__(self, min_words=0, keywords=None, *args, **kwargs):
+        self.keywords = keywords if keywords else []
+        self.min_words = min_words
+
+    def extract_words(self, text):
         words = str(text).lower().split()
         return [word for word in self.keywords if word in words]
+
+    def is_valid(self, text):
+        words = self.extract_words(text)
+        return len(words) >= self.min_words

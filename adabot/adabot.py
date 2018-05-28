@@ -1,17 +1,19 @@
 from chatterbot import ChatBot
-from command import WitCommmand
-from runner import RequestRunner
-from mode import voice, terminal
-from settings import WIT_TOKEN, ARDUINO_URL
+from .command import WitCommmand, Intent
+from .runner import RequestRunner
+from .mode import terminal
+from .settings import WIT_TOKEN, ARDUINO_URL, INTENT_WORDS
 
 
-class Ada(object):
-    name = 'Ada'
+class Bot(object):
 
-    def __init__(self, human_name=None, in_mode=None, out_mode=None, confidence=0.7, train=True):
-
-        self.command = WitCommmand(token=WIT_TOKEN,
-                                   runner=RequestRunner(url=ARDUINO_URL))
+    def __init__(self, name='Ada', human_name=None, train=True, in_mode=None,
+                 out_mode=None, confidence=0.7):
+        self.name = name
+        self.command = WitCommmand(
+            token=WIT_TOKEN,
+            runner=RequestRunner(url=ARDUINO_URL),
+            intent=Intent(min_words=2, keywords=INTENT_WORDS))
         self.bot = ChatBot(
             self.name, 
             storage_adapter='chatterbot.storage.SQLStorageAdapter',
@@ -41,10 +43,10 @@ class Ada(object):
         self.in_mode = in_mode
         self.out_mode = out_mode
 
-        # if train:
-            # self.bot.train('chatterbot.corpus.portuguese')
-            # self.bot.train('./data/luzes.yml')
-            # self.bot.train('./data/portao.yml')
+        if train:
+            self.bot.train('chatterbot.corpus.portuguese')
+            self.bot.train('./data/luzes.yml')
+            self.bot.train('./data/portao.yml')
 
     def welcome_chat(self):
         self.out_mode.response(f'Oi, eu me chamo {self.name}! O que deseja?')
@@ -66,22 +68,4 @@ class Ada(object):
     
     def speak(self, statement):
         self.out_mode.response(statement)
-        return response
-
-
-if __name__ == '__main__':
-    user_name = input(f'Digite aqui o seu nome: ')
-    bot = Ada(user_name, in_mode=voice.VoiceInput(), out_mode=voice.VoiceOutput())
-    bot.welcome_chat()
-    while True:
-        your_message = bot.listen()
-        if your_message:
-            response = bot.get_response(your_message)
-            bot.speak(response)
-            success, response_error = bot.process_command(your_message)
-            if success:
-                bot.speak(f'Pronto')
-            elif response_error:
-                bot.speak(response_error)
-
-                
+        return statement
