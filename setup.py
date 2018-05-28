@@ -23,7 +23,7 @@ setup(
     license=license,
     include_package_data=True,
     install_requires=requirements,
-    packages=['adabot', 'tests', 'docs'],
+    packages=['adabot', 'tests', 'docs', 'adabot.data', 'adabot.audio'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Web Environment',
