@@ -7,9 +7,10 @@ from .settings import WIT_TOKEN, ARDUINO_URL, INTENT_WORDS
 
 class Bot(object):
 
-    def __init__(self, name='Ada', human_name=None, train=True, in_mode=None,
+    def __init__(self, name='Ada', human_name='Human', train=True, in_mode=None,
                  out_mode=None, confidence=0.7):
         self.name = name
+        self.human_name = human_name
         self.command = WitCommmand(
             token=WIT_TOKEN,
             runner=RequestRunner(url=ARDUINO_URL),
