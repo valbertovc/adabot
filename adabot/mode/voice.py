@@ -24,7 +24,7 @@ class VoiceInput(InputType):
             self.recognizer.adjust_for_ambient_noise(source)
             audio = self.recognizer.listen(source)
             print('Escutei...')
-            self.recognize(audio)
+            return self.recognize(audio)
 
     def recognize(self, audio):
         raise NotImplemented
