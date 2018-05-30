@@ -6,8 +6,8 @@ from adabot import settings
 
 
 if __name__ == '__main__':
-    bot = Bot(name='Carolina', train=False)
-    bot.in_mode = voice.WitVoiceInput(wit_ai_key=settings.WIT_AI_KEY)
+    bot = Bot(name='Maria', train=False)
+    bot.in_mode = voice.WitVoiceInput()
     bot.out_mode = voice.VoiceOutput()
 
     bot.speak(f'Oi, eu me chamo {bot.name}!')

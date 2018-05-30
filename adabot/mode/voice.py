@@ -11,7 +11,8 @@ from adabot import settings
 
 class VoiceInput(InputType):
 
-    def __init__(self):
+    def __init__(self, language=None):
+        self.language = language
         self.recognizer = r = sr.Recognizer()
 
     def input(self):
@@ -39,6 +40,19 @@ class WitVoiceInput(VoiceInput):
     def recognize(self, audio):
         try:
             text = self.recognizer.recognize_wit(audio, key=self.wit_ai_key)
+        except sr.UnknownValueError:
+            text = 'Não entendi'
+        except sr.RequestError as e:
+            print(e)
+            text = 'Não consegui processar a sua voz'
+        return text
+
+
+class GoogleVoiceInput(VoiceInput):
+
+    def recognize(self, audio):
+        try:
+            text = self.recognizer.recognize_google(audio, language=self.language)
         except sr.UnknownValueError:
             text = 'Não entendi'
         except sr.RequestError as e:
