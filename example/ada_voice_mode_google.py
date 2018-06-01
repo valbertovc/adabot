@@ -7,8 +7,8 @@ from adabot import settings
 
 if __name__ == '__main__':
     bot = Bot(name='Cristina', train=False)
-    bot.in_mode = voice.GoogleVoiceInput(language='pt-BR')
-    bot.out_mode = voice.VoiceOutput()
+    bot.in_mode = voice.GoogleVoiceInput(language=settings.LANGUAGE)
+    bot.out_mode = voice.GoogleVoiceOutput(language=settings.LANGUAGE)
 
     bot.speak(f'Oi, eu me chamo {bot.name}!')
     bot.speak('Como você se chama?')

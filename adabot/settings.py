@@ -9,6 +9,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 AUDIO_DIR = os.path.join(BASE_DIR, 'adabot', 'audio')
 DATA_DIR = os.path.join(BASE_DIR, 'adabot', 'data')
 
+LANGUAGE='pt-BR'
+
 # Define url address for arduino
 # ARDUINO_URL = ''
 

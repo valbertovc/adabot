@@ -35,8 +35,8 @@ class VoiceInput(InputType):
 
 class WitVoiceInput(VoiceInput):
 
-    def __init__(self, wit_ai_key):
-        super().__init__()
+    def __init__(self, wit_ai_key, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.wit_ai_key = wit_ai_key
 
     def recognize(self, audio):
@@ -67,12 +67,18 @@ class GoogleVoiceInput(VoiceInput):
 
 class VoiceOutput(OutputType):
 
+    def __init__(self, language=None):
+        self.language = language
+
+
+class GoogleVoiceOutput(VoiceOutput):
+
     def response(self, statement, *args, **kwargs):
         statement = str(statement)
         return self.speak(statement)
 
     def speak(self, text):
-        tts = gTTS(text=text, lang='pt-BR')
+        tts = gTTS(text=text, lang=self.language)
         slug_name = slugify(text) + '.mp3'
         file_name = os.path.join(settings.AUDIO_DIR, slug_name)
         if not os.path.exists(file_name):
