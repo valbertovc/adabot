@@ -3,7 +3,7 @@ include LICENSE
 include MANIFEST.in
 include Makefile
 include requirements.txt
-graft adabot
+graft adabot/data
 graft tests
 graft docs
 global-exclude *.mp3
