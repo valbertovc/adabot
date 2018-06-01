@@ -7,6 +7,9 @@ from slugify import slugify
 
 from adabot.mode.type import InputType, OutputType
 from adabot import settings
+from adabot.utils import logging
+
+logger = logging().getLogger(__name__)
 
 
 class VoiceInput(InputType):
@@ -19,12 +22,11 @@ class VoiceInput(InputType):
         return self.listen()
 
     def listen(self):
-        print('Escutando...')
-
+        logger.info('Escutando...')
         with sr.Microphone() as source:
             self.recognizer.adjust_for_ambient_noise(source)
             audio = self.recognizer.listen(source)
-            print('Escutei...')
+            logger.info('Escutei...')
             return self.recognize(audio)
 
     def recognize(self, audio):
@@ -40,10 +42,11 @@ class WitVoiceInput(VoiceInput):
     def recognize(self, audio):
         try:
             text = self.recognizer.recognize_wit(audio, key=self.wit_ai_key)
-        except sr.UnknownValueError:
+        except sr.UnknownValueError as e:
+            logger.exception('UnknownValueError: %s', e)
             text = 'Não entendi'
         except sr.RequestError as e:
-            print(e)
+            logger.exception('RequestError: %s', e)
             text = 'Não consegui processar a sua voz'
         return text
 
@@ -53,10 +56,11 @@ class GoogleVoiceInput(VoiceInput):
     def recognize(self, audio):
         try:
             text = self.recognizer.recognize_google(audio, language=self.language)
-        except sr.UnknownValueError:
+        except sr.UnknownValueError as e:
+            logger.exception('UnknownValueError: %s', e)
             text = 'Não entendi'
         except sr.RequestError as e:
-            print(e)
+            logger.exception('RequestError: %s', e)
             text = 'Não consegui processar a sua voz'
         return text
 

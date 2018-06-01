@@ -1,4 +1,7 @@
 from wit import Wit
+from adabot.utils import logging
+
+logger = logging().getLogger(__name__)
 
 
 class Commmand(object):
@@ -40,7 +43,7 @@ class WitCommmand(Commmand):
         error = ''
         success = False
         if self.is_valid():
-            print("Executando o comando...")
+            logger.info("Executando o comando...")
             success = self.__run()
             error = self.error
         return success, error
@@ -49,10 +52,13 @@ class WitCommmand(Commmand):
         return self.text and self.intent.is_valid(self.text)
 
     def process_wit_response(self):
+        self.params.clear()
+        logger.info(f'Enviando para wit.ai: {self.text}')
         response = self.wit.message(self.text)
         entities = response['entities']
         for entitie, data in entities.items():
             self.params[entitie] = data[0]['value']
+        logger.info(f'Parâmetros wit.ai: {self.params}')
 
 
 class Intent(object):

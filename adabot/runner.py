@@ -1,4 +1,7 @@
 import requests
+from adabot.utils import logging
+
+logger = logging().getLogger(__name__)
 
 
 class CommandRunner(object):
@@ -23,5 +26,6 @@ class RequestRunner(CommandRunner):
             self.response = response
             return response.status_code == 200
         except requests.exceptions.ConnectionError as e:
-            self.error = 'Erro na conexão'
+            logger.exception('ConnectionError: %s', e)
+            self.error = 'Houve um erro na conexão'
             return False
