@@ -4,7 +4,7 @@ from adabot.utils import logging
 logger = logging().getLogger(__name__)
 
 
-class Commmand(object):
+class Command(object):
     error = ''
 
     def __init__(self, runner, *args, **kwargs):
@@ -24,7 +24,7 @@ class Commmand(object):
         return success
 
 
-class WitCommmand(Commmand):
+class WitCommand(Command):
 
     def __init__(self, token, intent, *args, **kwargs):
         super().__init__(*args, **kwargs)

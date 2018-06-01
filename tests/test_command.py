@@ -1,13 +1,13 @@
 import unittest
 from adabot import settings
-from adabot.command import WitCommmand, Intent
+from adabot.command import WitCommand, Intent
 from adabot.runner import RequestRunner
 
 
 class WitCommandTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.command = WitCommmand(token=settings.WIT_TOKEN,
+        self.command = WitCommand(token=settings.WIT_TOKEN,
                               runner=RequestRunner(url=settings.ARDUINO_URL),
                               intent=Intent(min_words=2, keywords=settings.INTENT_WORDS))
 

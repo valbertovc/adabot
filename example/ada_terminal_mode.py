@@ -1,6 +1,6 @@
 from adabot import Bot
 from adabot import settings
-from adabot.command import WitCommmand, Intent
+from adabot.command import WitCommand, Intent
 from adabot.runner import RequestRunner
 
 
@@ -8,7 +8,7 @@ if __name__ == '__main__':
     human_name = input(f'Digite aqui o seu nome: ')
     bot = Bot(name='Alícia', human_name=human_name, train=False)
 
-    command = WitCommmand(token=settings.WIT_TOKEN,
+    command = WitCommand(token=settings.WIT_TOKEN,
                           runner=RequestRunner(url=settings.ARDUINO_URL),
                           intent=Intent(min_words=2, keywords=settings.INTENT_WORDS))
 

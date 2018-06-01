@@ -1,6 +1,6 @@
 from adabot import Bot
 from adabot.mode import voice
-from adabot.command import WitCommmand, Intent
+from adabot.command import WitCommand, Intent
 from adabot.runner import RequestRunner
 from adabot import settings
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     bot.human_name = human_name
     bot.speak(f'Olá {bot.human_name}, em que posso ajudar?')
 
-    command = WitCommmand(token=settings.WIT_TOKEN,
+    command = WitCommand(token=settings.WIT_TOKEN,
                           runner=RequestRunner(url=settings.ARDUINO_URL),
                           intent=Intent(min_words=2, keywords=settings.INTENT_WORDS))
 
