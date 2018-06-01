@@ -11,7 +11,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='adabot',
-    version='1.2.1',
+    version='1.2.0',
     description='Ada is chatbot for home automation',
     keywords='ada chatbot bot home automation',
     long_description=readme,
