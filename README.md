@@ -36,8 +36,8 @@ O código abaixo é um exemplo inicial de como começar a usar adabot como um ch
 from adabot import Bot
 
 if __name__ == '__main__':
-    bot = Bot()
-    bot.train('chatterbot.corpus.portuguese')
+    adabot = Bot()
+    adabot.bot.train('chatterbot.corpus.portuguese')
     while True:
         your_message = bot.listen()
         if your_message:
