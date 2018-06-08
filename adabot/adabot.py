@@ -1,7 +1,7 @@
 from chatterbot import ChatBot
 
-from .mode import terminal
-from . import settings
+from adabot.mode import terminal
+from adabot import settings
 
 
 class Bot(object):
