@@ -11,7 +11,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='adabot',
-    version='1.2.0',
+    version='1.2.1',
     description='Ada is chatbot for home automation',
     keywords='ada chatbot bot home automation',
     long_description=readme,
@@ -21,7 +21,7 @@ setup(
     license=license,
     include_package_data=True,
     install_requires=requirements,
-    packages=['adabot'],
+    packages=['adabot', 'adabot.mode'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
