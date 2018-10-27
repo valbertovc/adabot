@@ -5,7 +5,7 @@ try:
 except ImportError:
     pass
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.getcwd()
 AUDIO_DIR = os.path.join(BASE_DIR, 'adabot', 'audio')
 DATA_DIR = os.path.join(BASE_DIR, 'adabot', 'data')
 
